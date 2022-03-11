@@ -1,5 +1,4 @@
 const config = require("../../lib/config");
-// const user = require('../models/users');
 const nodemailer = require('nodemailer');
 const adminEmail = config.ADMIN_FROM_EMAIL;
 const key = config.ADMIN_FROM_EMAIL_KEY;
