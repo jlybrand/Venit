@@ -1,0 +1,287 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
+* {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+html,
+body {
+  box-sizing: border-box;
+  font-size: 1em;
+  height: 100%;
+  padding: 0px;
+}
+
+body {
+  background: #2a7216; 
+  background: linear-gradient(to bottom, #f5f8f4, #8abd7c);
+  background: -webkit-linear-gradient(to top, #f5f8f4, #8abd7c);
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+footer {
+  align-items: baseline;
+  display: flex;
+  justify-content: space-around;
+  margin-top: auto;
+}
+
+#footer-text {
+  color: #222;
+  text-decoration: none;
+}
+
+#page-content {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.text1, .text2 {
+  align-items: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  padding: 1em;
+  justify-content: center;
+}
+
+.text1 > h3, .text1 > p {
+  text-align: center;
+  color: #fff;
+}
+
+.text1 > h3 {
+  font-size: 3em;
+  margin-bottom: 1em;
+}
+
+.text1 > p {
+  font-size: 2em;
+}
+
+#page-content-column {
+  display: flex;
+  flex-direction: column;
+}
+
+#form-content {
+  box-shadow: 10px 10px 10px #333;
+  flex: 1;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  margin: 3em auto;
+}
+
+#search-form-right, #registration-form-right {
+  flex: 1;
+  display: flex; 
+}
+
+.text2 > h3   {
+  color: #fff;
+  font-size: 2.2em;
+  font-weight: bold;
+  margin: 0.5em auto;
+  text-align: center;
+}
+
+.text3 > h3, .text3 > h2 {
+  color: #222;
+  font-size: 2.2em;
+  font-weight: bold;
+  margin: 0.5em auto;
+  text-align: center;
+}
+
+#form-detail {
+  flex: 1;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+}
+
+#form-detail > h2 {
+  align-self: center;
+  font-weight: 700;
+  color: rgb(8, 8, 8);
+  font-size: 2em;
+}
+
+#registration-form-right {
+  background-image: url("/images/istockphoto-1286943539-170667a.jpg");
+  background-size: cover; 
+}
+
+#search-form-right {
+  background-image: url("/images/moritz-kindler.jpg");
+  background-size: cover;
+  background-position: 85%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+#alt-bttns-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 3em;
+}
+
+#alt-bttns-container > a {
+  text-decoration: none;
+}
+
+a.link {
+  font-size: 1.2em;
+  font-weight: 600;
+  border: solid 1px #2a7216;
+  background: linear-gradient(to right, #3e423e, #40832e);
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 0.7em 1.2em;
+  text-align: center;
+  margin: 1em;
+}
+
+a.link:hover {
+  background: linear-gradient(to left, #3e423e, #40832e);
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1em;
+}
+
+label {
+  font-weight: 500;
+}
+
+input {
+  padding: 0.5em;
+  width: 95%;
+}
+
+select {
+  color: #222;
+  height: 38px;
+}
+
+#submit-bttn {
+  background: #40832e;
+  background: linear-gradient(to left, #3e423e, #40832e);
+  background: -webkit-linear-gradient(to left, #2a3527, #40832e);
+  color: snow;
+  font-size: 1.3em;
+  padding: 0.5em;
+  text-decoration: none;
+}
+
+#submit-bttn:hover {
+  background: linear-gradient(to right, #3e423e, #40832e);
+  cursor: pointer;
+}
+
+ul.flash {
+  color: rgb(139, 3, 3);
+  list-style-type: none;
+} 
+
+#error-page-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#error-message-container {
+  align-self: center;
+  /* border: solid 2px black; */
+  background-color: #f5f8f4;
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
+  margin-top: 2em;
+  max-width: 75%;
+}
+
+#error-message-container > h1 {
+  text-align: center;
+}
+
+#error-message-container > a {
+  background-color: rgb(28, 41, 235);
+  border-radius: 0.4em;
+  font-weight: 500;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  text-decoration: none;
+  margin: 2em auto;
+  padding: 0.5em 1em;
+}
+
+#account-msg-container {
+  background-color: #ecf1ec;
+  color: #223;
+  display: flex;
+  justify-content: center;
+  padding-top: 2em;
+}
+
+#account-msg {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 0.5em;
+}
+
+#account-msg > h2 {
+  font-size: 2.3em;
+}
+
+.error {
+  display: flex;
+  flex-direction: column;
+}
+
+.error-msg-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.error-bttn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+a.try-again-bttn {
+  background: linear-gradient(to left, #3e423e, #40832e);
+  color: #fff;
+  padding: 1em;
+  text-decoration: none;
+}
+
+#signin-form-content {
+  display: flex;
+  flex-direction: column;
+  max-width: 70%;
+  margin: 3em auto;
+}
+
+@media only screen and (max-width: 500px) {
+  #search-form-content, #form-content, #account-msg-container {
+    flex-direction: column;
+    max-width: 100%;
+    margin-top: 0;
+  }
+} 

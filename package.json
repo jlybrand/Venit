@@ -1,0 +1,35 @@
+{
+  "name": "mqsearch",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node ./bin/www",
+    "dev": "npx nodemon ./bin/www",
+    "test": "jest"
+  },
+  "author": "jal",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "bcrypt": "^5.0.1",
+    "connect-loki": "^1.2.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-flash": "^0.0.2",
+    "express-session": "^1.17.2",
+    "express-validator": "^6.14.0",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.7.2",
+    "pg": "^8.7.1",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "jest": "^27.5.1",
+    "nodemon": "^2.0.15",
+    "superagent": "^7.1.1",
+    "supertest": "^6.2.2"
+  },
+  "description": ""
+}

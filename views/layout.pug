@@ -1,0 +1,26 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible', content='IE=edge')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet', href='/stylesheets/venit.css')
+
+  title= title
+
+body
+
+  block content
+    if errorMessages && errorMessages.length > 0
+      ul.flash
+        each message in errorMessages
+          li.error= message
+
+  //- block signIn
+  //- form(action="/users/signout" method="post")
+  //-   fieldset.actions
+  //-     p Signed in as #{username}.
+  //-     button Sign Out        
+
+  footer
+    p(id='footer-text') Copyright SandlapperDev &copy; 2022
+    a(id='footer-text' href="tel:+18005550199") 1-555-555-0199
