@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "start": "node ./bin/www",
-    "dev": "npx nodemon ./bin/www",
+    "heroku-postbuild": "npm install --production",
+    "start": "npx nodemon ./bin/www",
     "test": "jest"
   },
   "author": "jal",
@@ -30,6 +30,10 @@
     "nodemon": "^2.0.15",
     "superagent": "^7.1.1",
     "supertest": "^6.2.2"
+  },
+  "engines": {
+    "node": "14.17.1",
+    "npm": "7.18.1"
   },
   "description": ""
 }
