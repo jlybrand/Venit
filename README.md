@@ -57,7 +57,7 @@ A user can search for referral sources within a chosen radius of the user's medi
 
 #### Successful registration with only the user's data stored in the `clients table`:
 
-  - A welcome email is sent to the new customer with an attachment in .csv containing all of their referral sources [`targets`]
+  - A welcome email is sent to the new customer.
   -  An email notifies the admin that a user has registered for the service but there was an error storing their associated referral sources [`targets`] in the `targets table`.
   - User is presented with a sign-in form.
 

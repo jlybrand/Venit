@@ -23,13 +23,16 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  overflow-y: scroll;
 }
 
 footer {
   align-items: baseline;
   display: flex;
-  justify-content: space-around;
+  font-size: small;
+  justify-content: space-between;
   margin-top: auto;
+  padding: 10px;
 }
 
 #footer-text {
@@ -76,9 +79,10 @@ footer {
   box-shadow: 10px 10px 10px #333;
   flex: 1;
   display: flex;
-  flex-direction: row-reverse;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
   justify-content: center;
-  margin: 3em auto;
+  margin: 0 auto;
 }
 
 #search-form-right, #registration-form-right {
@@ -109,6 +113,7 @@ footer {
   display: flex;
   flex-direction: column;
   padding: 1em;
+  flex-basis: 100% 
 }
 
 #form-detail > h2 {
@@ -124,6 +129,7 @@ footer {
 }
 
 #search-form-right {
+  flex-basis: 100% ;
   background-image: url("/images/moritz-kindler.jpg");
   background-size: cover;
   background-position: 85%;
@@ -260,10 +266,15 @@ ul.flash {
   margin: 3em auto;
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (min-width: 600px) {
   #form-content {
-    flex-direction: column;
-    max-width: 100%;
-    margin-top: 0;
+    /* flex-direction: row-reverse; */
+    flex-wrap: no-wrap;
+    width: 70%;
+    margin-top: 40px;
+  }
+
+  #search-form-right, #form-detail {
+    flex-basis: 33%;
   }
 } 

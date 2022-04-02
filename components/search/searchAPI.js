@@ -9,7 +9,7 @@ const API_KEY_VALUE = config.API_KEY_VALUE;
 
 router.get('/', (req, res) => {
   res.render("search",
-    { title: "MQ Search" }
+    { title: "Venit" }
   );
 });
 
