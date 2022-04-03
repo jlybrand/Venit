@@ -45,24 +45,6 @@ footer {
   justify-content: center;
 }
 
-.form-text {
-  align-items: center;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  font-weight: 600;
-  padding: 1em;
-  justify-content: space-around;
-}
-
-.form-text > h3 {
-  color: #fff;
-  font-size: 2.2em;
-  font-weight: bold;
-  text-align: center;
-}
-
-
 #page-content-column {
   display: flex;
   flex-direction: column;
@@ -93,6 +75,24 @@ footer {
   flex-basis: 100%;
 }
 
+.form-text {
+  align-items: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  padding: 1em;
+  justify-content: space-around;
+}
+
+.form-text > h3 {
+  color: #fff;
+  font-size: 2.2em;
+  font-weight: bold;
+  text-align: center;
+}
+
+
 #form-detail > h2 {
   align-self: center;
   font-weight: 700;
@@ -115,16 +115,6 @@ footer {
   background-image: url("/images/istockphoto-1286943539-170667a.jpg");
   background-size: cover;
 }
-
-/* #alt-bttns-container {
-  display: flex;
-  justify-content: space-evenly;
-  margin-bottom: 3em;
-}
-
-#alt-bttns-container > a {
-  text-decoration: none;
-} */
 
 a.link {
   font-size: 1.2em;
@@ -243,7 +233,7 @@ ul.flash {
 
 @media only screen and (min-width: 600px) {
   #form-content {
-    width: 70%;
+    width: 60%;
     margin-top: 40px;
   }
 

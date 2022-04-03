@@ -27,12 +27,15 @@ const setSecure = () => {
   }
 }
 
+app.set('trust proxy', 1) 
 app.use(session({
-  cookie: {
-    httpOnly: true,
-    path: '/',
-    secure: setSecure(),
-  },
+  // cookie: {
+  //   httpOnly: true,
+  //   path: '/',
+  //   secure: setSecure(),
+  // },
+
+  cookie: {secure: true},
   name: 'coredb-session-id',
   resave: true,
   saveUninitialized: true,
