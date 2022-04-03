@@ -19,6 +19,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 const setSecure = () => {
+  console.log(app.get('env'));
   if (app.get('env') === 'production') {
     app.set('trust proxy', 1)
     return true;
@@ -29,18 +30,19 @@ const setSecure = () => {
 
 app.set('trust proxy', 1) 
 app.use(session({
-  // cookie: {
-  //   httpOnly: true,
-  //   path: '/',
-  //   secure: setSecure(),
-  // },
-
+  cookie: {
+    httpOnly: true,
+    path: '/',
+    // secure: setSecure(),
+    maxAge: 60000, 
+    sameSite: 'none',
+    secure: (process.env.NODE_ENV && process.env.NODE_ENV == 'production') ? true : false
+  },
   name: 'coredb-session-id',
   resave: false,
   saveUninitialized: false,
   secret: config.SECRET,
   store: new LokiStore({}),
-  cookie: { httpOnly: true, secure: setSecure(), maxAge: 60000, sameSite: 'none' }
 }));
 
 app.use((req, res, next) => {
