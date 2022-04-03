@@ -35,12 +35,12 @@ app.use(session({
   //   secure: setSecure(),
   // },
 
-  cookie: {secure: true},
   name: 'coredb-session-id',
-  resave: true,
-  saveUninitialized: true,
+  resave: false,
+  saveUninitialized: false,
   secret: config.SECRET,
   store: new LokiStore({}),
+  cookie: { httpOnly: true, secure: setSecure(), maxAge: 60000, sameSite: 'none' }
 }));
 
 app.use((req, res, next) => {
