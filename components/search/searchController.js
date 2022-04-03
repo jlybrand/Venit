@@ -93,9 +93,16 @@ const submitSearch = async (req, res) => {
       const isEligible = getEligibility(SEARCH.getEligibleResults().length);
 
       if (isEligible) {
-        req.session.eligibilityMsg = eligibilityMsg;
-        req.session.claimMsg = claimMsg;
-        res.redirect('/users/register');
+        // req.session.eligibilityMsg = eligibilityMsg;
+        // req.session.claimMsg = claimMsg;
+        // res.redirect('/users/register');
+        res.render('register',
+        {
+          title: 'Register',
+          // errorMessages: [message],
+          eligibilityMsg,
+          claimMsg,
+        })
       } else {
         const searchMsg = `Try increasing your search radius.`;
         rerenderSearchForm('Increase Search Radius', searchMsg)

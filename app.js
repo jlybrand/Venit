@@ -19,7 +19,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 const setSecure = () => {
-  console.log(app.get('env'));
   if (app.get('env') === 'production') {
     app.set('trust proxy', 1)
     return true;
@@ -33,10 +32,9 @@ app.use(session({
   cookie: {
     httpOnly: true,
     path: '/',
-    // secure: setSecure(),
+    secure: setSecure(),
     maxAge: 60000, 
     sameSite: 'none',
-    secure: (process.env.NODE_ENV && process.env.NODE_ENV == 'production') ? true : false
   },
   name: 'coredb-session-id',
   resave: false,
