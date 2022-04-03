@@ -14,10 +14,9 @@ body {
 }
 
 body {
-  background: #2a7216; 
+  background: #2a7216;
   background: linear-gradient(to bottom, #f5f8f4, #8abd7c);
   background: -webkit-linear-gradient(to top, #f5f8f4, #8abd7c);
-
   background-repeat: no-repeat;
   background-attachment: fixed;
   display: flex;
@@ -46,29 +45,23 @@ footer {
   justify-content: center;
 }
 
-.text1, .text2 {
+.form-text {
   align-items: center;
   flex: 1;
   display: flex;
   flex-direction: column;
   font-weight: 600;
   padding: 1em;
-  justify-content: center;
+  justify-content: space-around;
 }
 
-.text1 > h3, .text1 > p {
-  text-align: center;
+.form-text > h3 {
   color: #fff;
+  font-size: 2.2em;
+  font-weight: bold;
+  text-align: center;
 }
 
-.text1 > h3 {
-  font-size: 3em;
-  margin-bottom: 1em;
-}
-
-.text1 > p {
-  font-size: 2em;
-}
 
 #page-content-column {
   display: flex;
@@ -79,32 +72,16 @@ footer {
   box-shadow: 10px 10px 10px #333;
   flex: 1;
   display: flex;
-  /* flex-direction: column; */
   flex-wrap: wrap;
   justify-content: center;
   margin: 0 auto;
 }
 
-#search-form-right, #registration-form-right {
+
+#form-right {
   flex: 1;
-  display: flex; 
+  display: flex;
   flex-direction: column;
-}
-
-.text2 > h3   {
-  color: #fff;
-  font-size: 2.2em;
-  font-weight: bold;
-  margin: 0.5em auto;
-  text-align: center;
-}
-
-.text3 > h3, .text3 > h2 {
-  color: #222;
-  font-size: 2.2em;
-  font-weight: bold;
-  margin: 0.5em auto;
-  text-align: center;
 }
 
 #form-detail {
@@ -113,29 +90,33 @@ footer {
   display: flex;
   flex-direction: column;
   padding: 1em;
-  flex-basis: 100% 
+  flex-basis: 100%;
 }
 
 #form-detail > h2 {
   align-self: center;
   font-weight: 700;
-  color: rgb(8, 8, 8);
+  color: rgb(75, 77, 75);
   font-size: 2em;
 }
 
-#registration-form-right {
-  background-image: url("/images/istockphoto-1286943539-170667a.jpg");
-  background-size: cover; 
-}
-
-#search-form-right {
-  flex-basis: 100% ;
+.search-img-wrap {
+  flex-basis: 100%;
+  flex: 1;
   background-image: url("/images/moritz-kindler.jpg");
   background-size: cover;
-  background-position: 85%;
+  background-position: 85%; 
 }
 
-#alt-bttns-container {
+.register-img-wrap {
+  flex-basis: 100%;
+  flex: 1;
+
+  background-image: url("/images/istockphoto-1286943539-170667a.jpg");
+  background-size: cover;
+}
+
+/* #alt-bttns-container {
   display: flex;
   justify-content: space-evenly;
   margin-bottom: 3em;
@@ -143,19 +124,20 @@ footer {
 
 #alt-bttns-container > a {
   text-decoration: none;
-}
+} */
 
 a.link {
   font-size: 1.2em;
   font-weight: 600;
   border: solid 1px #2a7216;
+  border-radius: 0.4em;
   background: linear-gradient(to right, #3e423e, #40832e);
-  color: #fff;
+  color: rgb(255, 255, 255);
   cursor: pointer;
+  margin: 2em auto;
+  padding: 0.5em 1em;
   text-decoration: none;
-  padding: 0.7em 1.2em;
   text-align: center;
-  margin: 1em;
 }
 
 a.link:hover {
@@ -174,12 +156,16 @@ label {
 
 input {
   padding: 0.5em;
-  width: 95%;
 }
 
 select {
   color: #222;
   height: 38px;
+}
+
+input,
+select {
+  width: 95%;
 }
 
 #submit-bttn {
@@ -200,7 +186,7 @@ select {
 ul.flash {
   color: rgb(139, 3, 3);
   list-style-type: none;
-} 
+}
 
 #error-page-content {
   display: flex;
@@ -220,17 +206,6 @@ ul.flash {
 
 #error-message-container > h1 {
   text-align: center;
-}
-
-#error-message-container > a {
-  background-color: rgb(28, 41, 235);
-  border-radius: 0.4em;
-  font-weight: 500;
-  color: rgb(255, 255, 255);
-  text-align: center;
-  text-decoration: none;
-  margin: 2em auto;
-  padding: 0.5em 1em;
 }
 
 #account-msg {
@@ -268,13 +243,12 @@ ul.flash {
 
 @media only screen and (min-width: 600px) {
   #form-content {
-    /* flex-direction: row-reverse; */
-    flex-wrap: no-wrap;
     width: 70%;
     margin-top: 40px;
   }
 
-  #search-form-right, #form-detail {
+  #form-right,
+  #form-detail {
     flex-basis: 33%;
   }
-} 
+}

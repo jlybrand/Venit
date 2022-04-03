@@ -3,12 +3,11 @@ extends layout
 block content 
   #page-content-column
     #form-content
-      #registration-form-right
-        .text2
+      #form-right(class="register-img-wrap")
+        .form-text
           h3= eligibilityMsg
           h3= claimMsg
       form#form-detail(method='POST', action='/users/register')
-        //- h2 Registration Form
         if errorMessages && errorMessages.length > 0
           ul.flash
             each message in errorMessages

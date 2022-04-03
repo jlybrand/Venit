@@ -67,9 +67,14 @@ Visit xxx to try out Venit
 
 Task List:
 
+- [ ] Add navBar
 - [ ] Add option to contact X-marketing to assist in searching.
 - [ ] Rate limiting
 - [ ] Further unit testing
 - [ ] Payment method via Square, Stripe
-- [ ] Registered User Dashboard
+- [ ] User sign in 
+- [ ] User Dashboard with ability to view, add, remove and export targets.
 - [ ] Admin panel for managing prospects, clients, and associtated referral data.
+
+
+Need to apply styling to registration form that matches search form and it should display properly. Probbaly best to give the same class names to the search form and resistration form children
