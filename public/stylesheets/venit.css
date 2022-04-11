@@ -1,17 +1,19 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto");
 
 * {
-  margin: 0;
+  box-sizing: border-box; /* added */
   font-family: "Roboto", sans-serif;
+  margin: 0; /* added */
+  padding: 0;
 }
 
-html,
+/* html,
 body {
   box-sizing: border-box;
   font-size: 1em;
   height: 100%;
   padding: 0px;
-}
+} */
 
 body {
   background: #2a7216;
@@ -23,6 +25,73 @@ body {
   flex-direction: column;
   min-height: 100vh;
   overflow-y: scroll;
+}
+
+.nav-bar {
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 8px 6px -6px rgb(77, 75, 75);
+  display: flex; 
+  flex-direction: column;
+  padding: 10px 5px;
+}
+
+.nav-bar > a {
+  color: #222;
+  text-decoration: none;
+}
+
+.logo-wrap {
+  margin-left: 10px;
+}
+
+.logo-wrap > a {
+  color:#222;
+  font-size: 1.8em;
+  font-weight: bold;
+  margin-left: -190px;
+  text-decoration: none;
+}
+
+.menu {
+  position: absolute;
+  right: 10px;
+  top: 15px;
+
+}
+
+.menu-item {
+  width: 20px;
+  height: 3px;
+  background-color: #222;
+  margin-bottom: 4px;
+}
+
+.nav-list {
+  list-style-type: none;
+  display: none; 
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.nav-list > li {
+  border-top: solid black 1px;
+  padding: 10px;
+}
+
+nav > ul > li > a {
+  /* border-top: 1px solid #222; */
+  color: #222;
+  text-decoration: none;
+}
+
+nav > ul > li > a:hover {
+  color: rgb(43, 55, 235);
+}
+
+.nav-logo:hover {
+  color: rgb(87, 153, 25);
 }
 
 footer {
@@ -231,6 +300,10 @@ ul.flash {
   margin: 3em auto;
 }
 
+.active {
+  display: flex;
+}
+
 @media only screen and (min-width: 600px) {
   #form-content {
     width: 60%;
@@ -240,5 +313,28 @@ ul.flash {
   #form-right,
   #form-detail {
     flex-basis: 33%;
+  }
+
+  .nav-bar {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .logo-wrap > a {
+    margin-left: 30px;
+  }
+
+  .nav-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  .nav-list > li {
+    border-top: none;
+  }
+
+  .menu {
+    display: none;
   }
 }

@@ -17,12 +17,27 @@ head
     )
     
   <meta name="author" content="Jason Lybrand" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   link(rel='stylesheet', href='/stylesheets/venit.css')
+  script(src="/javascripts/index.js")
 
   title= title
 
 body
-
+  nav(class='nav-bar')
+    .logo-wrap
+      a(class='nav-logo' href='/search') Venit
+    ul(class="nav-list")
+      li 
+        a(href='/search') Search 
+      li 
+        a(href='/users/signin') Sign In
+      li 
+        a(href='#') Contact Us
+    .menu 
+      .menu-item
+      .menu-item    
+      .menu-item    
   block content
     if errorMessages && errorMessages.length > 0
       ul.flash
@@ -38,3 +53,4 @@ body
   footer
     p(id='footer-text') Copyright SandlapperDev &copy; 2022
     a(id='footer-text' href="tel:+18005550199" alt='phone number') 1-555-555-0199
+
