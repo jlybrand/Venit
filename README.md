@@ -1,4 +1,4 @@
-Visit xxx to give Venit a try.
+Visit https://venit.herokuapp.com/search to give Venit a try.
 
 ## Venit
 
@@ -25,7 +25,7 @@ A user can search for referral sources within a chosen radius of the user's medi
 - The MapQuest Search API is queried returning any `searchResults` that match the user input parameters.
 
 - The Search Form data is compared against the `searchResults` for matching address and zip code. 
-  - If matching data is found, it is filtered out of the search `searchResults` and placed into the database within the `prospects table`. The marketing firm now has the user's data for future campaigns. 
+  - If matching data is found, it is filtered out of the `searchResults` and placed into the database within the `prospects table`. The marketing firm now has the user's data for future campaigns. 
 
   - The user data saved consists of practice name, address, city, state, zip code, phone number, and date the record was created.
 
@@ -58,23 +58,21 @@ A user can search for referral sources within a chosen radius of the user's medi
 #### Successful registration with only the user's data stored in the `clients table`:
 
   - A welcome email is sent to the new customer.
-  -  An email notifies the admin that a user has registered for the service but there was an error storing their associated referral sources [`targets`] in the `targets table`.
+  - An email notifies the admin that a user has registered for the service but there was an error storing their associated referral sources [`targets`] in the `targets table`.
   - User is presented with a sign-in form.
 
 
-Visit xxx to try out Venit
+Visit https://venit.herokuapp.com/search to try out Venit
 
 
 Task List:
 
-- [ ] Add navBar
+- [x] Add navBar
 - [ ] Add option to contact X-marketing to assist in searching.
 - [ ] Rate limiting
+- [ ] Optimize queries
 - [ ] Further unit testing
 - [ ] Payment method via Square, Stripe
 - [ ] User sign in 
 - [ ] User Dashboard with ability to view, add, remove and export targets.
 - [ ] Admin panel for managing prospects, clients, and associtated referral data.
-
-
-Need to apply styling to registration form that matches search form and it should display properly. Probbaly best to give the same class names to the search form and resistration form children
