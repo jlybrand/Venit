@@ -1,31 +1,30 @@
 extends layout
 
 block content 
-  #page-content-column
-    #form-content
-      #form-right(class="register-img-wrap")
+    
+    form.register-form(method='POST', action='/users/register')
+      #register-form-messsage
         .form-text
-          h3= eligibilityMsg
-          h3= claimMsg
-      form#form-detail(method='POST', action='/users/register')
-        if errorMessages && errorMessages.length > 0
-          ul.flash
-            each message in errorMessages
-              li.error= message
-        .form-row
-          label#firstname(for='firstname') First Name
-          input(type="text" name="firstname" placeholder="Enter your first name" value=firstname)
-        .form-row  
-          label#lastname(for="lastname") Last Name 
-          input#zipcode(type="text" name="lastname" placeholder="Enter your last name" value=lastname)
-        .form-row
-          label(for="email") Email
-          input#email(type="email" name="email" placeholder="myeamil@me.com" value=email)
-        .form-row    
-          label(for="username") Username
-          input#email(type="text" name="username" placeholder="username" value=username)            
-        .form-row    
-          label(for="password") Password
-          input#password(type="password" name="password" placeholder="Enter a password" value='')
-        .form-row
-          button#submit-bttn(type='submit') Register
+          h3.eligibility-message= eligibilityMsg
+          h3.claim-message= claimMsg
+      if errorMessages && errorMessages.length > 0
+        ul.flash
+          each message in errorMessages
+            li.error= message
+      .register-form__row
+        label#firstname(for='firstname') First Name
+        input(type="text" name="firstname" placeholder="Enter your first name" value=firstname)
+      .register-form__row  
+        label#lastname(for="lastname") Last Name 
+        input#zipcode(type="text" name="lastname" placeholder="Enter your last name" value=lastname)
+      .register-form__row
+        label(for="email") Email
+        input#email(type="email" name="email" placeholder="myeamil@me.com" value=email)
+      .register-form__row    
+        label(for="username") Username
+        input#email(type="text" name="username" placeholder="username" value=username)            
+      .register-form__row    
+        label(for="password") Password
+        input#password(type="password" name="password" placeholder="Enter a password" value='')
+      .register-form__row
+        button(type='submit') Register
