@@ -1,34 +1,28 @@
 extends layout 
 
 block content
-  #page-content-column
-    #form-content
-      #form-right(class="search-img-wrap")
-        .form-text
-          h3 X-Marketing
-          h3 Grow Your Network with Exclusive Content 
-      form#form-detail(method='POST', action='/search')
-        h2 Search Form
-        if errorMessages && errorMessages.length > 0
-          ul.flash
-            each message in errorMessages
-              li.error= message
-        .form-row
-          label(for='address') Your Business Address
-          input(type="text" name="address" placeholder="ex: 123 Maple St" value=address)
-        .form-row
-          label#address(for="zipcode") Zipcode 
-          input#zipcode(type="text" name="zipcode" placeholder="ex: 24765" value=zipcode)
-        .form-row    
-          label(for="radius") Search Radius
-          input#radius(type="number" name="radius" placeholder="ex: 25" min='10' value=radius)
-        .form-row
-          label(for="sicCode") Business Type
-          select#select-type(name="sicCode" placeholder="" value=sicCode)
-            option(value="") Choose a Business Type
-            option(value="802101") Dentists
-            option(value="801101") Doctors
-            option(value="599504") Opticians
-            option(value="591205") Pharmacies
-        .form-row
-          button#submit-bttn(type='submit') Find Referrals
+    
+  form.search-form(method='POST', action='/search')
+    if errorMessages && errorMessages.length > 0
+      ul.flash
+        each message in errorMessages
+          li.error= message
+    .search-form__row
+      label(for='address') Your Business Address
+      input(type="text" name="address" placeholder="ex: 123 Maple St" value=address)
+    .search-form__row
+      label#address(for="zipcode") Zipcode 
+      input#zipcode(type="text" name="zipcode" placeholder="ex: 24765" value=zipcode)
+    .search-form__row    
+      label(for="radius") Search Radius
+      input#radius(type="number" name="radius" placeholder="ex: 25" min='10' value=radius)
+    .search-form__row
+      label(for="sicCode") Business Type
+      select(name="sicCode" placeholder="" value=sicCode)
+        option(value="") Choose a Business Type
+        option(value="802101") Dentists
+        option(value="801101") Doctors
+        option(value="599504") Opticians
+        option(value="591205") Pharmacies
+    .search-form__row
+      button(type='submit') Find Referrals

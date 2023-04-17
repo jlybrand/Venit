@@ -1,52 +1,49 @@
 const CONFIG = require("../../lib/config");
-const SEARCH = require('./searchDAL');
-const USER = require('../users/usersDAL');
-const MAIL = require('../users/mailController');
+const SEARCH = require("./searchDAL");
+const USER = require("../users/usersDAL");
+const MAIL = require("../users/mailController");
 const API_URL = CONFIG.API_URL;
 let eligibilityMsg;
 let claimMsg;
 
 const getEligibility = (resultLength) => {
   if (resultLength >= 10) {
-    eligibilityMsg = 
-    `Your search resulted in ${resultLength} ${SEARCH.getBusinessType()} within ${SEARCH.getRadius()} miles.`
-    
-    claimMsg = `Register to Claim your Referrals Today.`
+    eligibilityMsg = `Your search resulted in ${resultLength} ${SEARCH.getBusinessType()} within ${SEARCH.getRadius()} miles.`;
+
+    claimMsg = `Register to Claim your Referrals`;
 
     return true;
   } else {
-    eligibilityMsg = `Try increasing your search radius.`
+    eligibilityMsg = `Try increasing your search radius`;
 
     return false;
   }
-}
+};
 
 const handleProspect = async () => {
   if (SEARCH.getProspect()) var prospectSaved = await SEARCH.saveProspect();
 
   if (prospectSaved) MAIL.prospectEmailToAdmin(SEARCH.getProspect());
-}
+};
 
 const handleSearchResults = async (origin, searchResults) => {
   const filteredResults = SEARCH.filterAndSetProspect(origin, searchResults);
   const eligibleResults = await USER.fetchEligibleResults(filteredResults);
   SEARCH.setEligibleResults(eligibleResults);
   USER.setTargets(SEARCH._eligibleResults);
-}
+};
 
 const submitSearch = async (req, res) => {
   const { address, zipcode, radius, sicCode } = req.body;
   const origin = `${address} ${zipcode}`;
   const params = {
-    "origin": origin,
-    "hostedDataList": [
+    origin: origin,
+    hostedDataList: [
       {
-        "tableName": "mqap.ntpois",
-        "extraCriteria": "group_sic_code LIKE ?",
-        "parameters": [
-          `${sicCode}`
-        ],
-        "columnNames": [
+        tableName: "mqap.ntpois",
+        extraCriteria: "group_sic_code LIKE ?",
+        parameters: [`${sicCode}`],
+        columnNames: [
           "name",
           "address",
           "city",
@@ -55,17 +52,17 @@ const submitSearch = async (req, res) => {
           "phone",
           "group_sic_code",
           "lat",
-          "lng"
-        ]
-      }
+          "lng",
+        ],
+      },
     ],
-    "options": {
-      "radius": radius,
-      "maxMatches": 4000
-    }
+    options: {
+      radius: radius,
+      maxMatches: 4000,
+    },
   };
 
-  if (CONFIG.NODE_ENV !== 'production') {
+  if (CONFIG.NODE_ENV !== "production") {
     console.log(`REQUEST: ${API_URL}?origin=${origin}, radius=${radius}`);
   }
 
@@ -73,19 +70,19 @@ const submitSearch = async (req, res) => {
     res.render("search", {
       title: title,
       errorMessages: [message],
-      address, 
+      address,
       zipcode,
-      radius, 
+      radius,
       sicCode,
     });
-  }
+  };
 
   try {
     const searchResults = await SEARCH.fetchData(params);
 
     if (searchResults === -1) {
-      const errMsg = 'Please ensure your address details are correct.';
-      rerenderSearchForm('Correct Address', errMsg);
+      const errMsg = "Please ensure your address details are correct.";
+      rerenderSearchForm("Correct Address", errMsg);
     } else {
       await handleSearchResults(origin, searchResults);
       SEARCH.setRadius(radius);
@@ -93,29 +90,24 @@ const submitSearch = async (req, res) => {
       const isEligible = getEligibility(SEARCH.getEligibleResults().length);
 
       if (isEligible) {
-        // req.session.eligibilityMsg = eligibilityMsg;
-        // req.session.claimMsg = claimMsg;
-        // res.redirect('/users/register');
-        res.render('register',
-        {
-          title: 'Register',
-          // errorMessages: [message],
+        res.render("register", {
+          title: "Register",
           eligibilityMsg,
           claimMsg,
-        })
+        });
       } else {
         const searchMsg = `Try increasing your search radius.`;
-        rerenderSearchForm('Increase Search Radius', searchMsg)
+        rerenderSearchForm("Increase Search Radius", searchMsg);
       }
     }
   } catch (error) {
-    console.log('submitSearch Error: ', error);
-    const errMsg = 'Error Encountered. Please Try Again';
-    rerenderSearchForm('Search Form', errMsg);
+    console.log("submitSearch Error: ", error);
+    const errMsg = "Error Encountered. Please Try Again";
+    rerenderSearchForm("Search Form", errMsg);
   }
 
   handleProspect();
-}
+};
 
 module.exports = {
   submitSearch,
