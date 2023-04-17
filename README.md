@@ -1,5 +1,3 @@
-Visit https://venit.herokuapp.com/search to give Venit a try.
-
 ## Venit
 
 ### Purpose and Flow
@@ -8,10 +6,9 @@ Venit is used to assist a marketing firm that offers custom content marketing pa
 
 These marketing packages come with a protected territory assuring the medical specialist they are exclusively marketing to medical professionals within their territory using X-Marketing's custom content.
 
-
 ### Searching
 
-A user can search for referral sources within a chosen radius of the user's medical practice address by simply entering a street address, 5 digit zip code, search radius, and selecting a business type to target. 
+A user can search for referral sources within a chosen radius of the user's medical practice address by simply entering a street address, 5 digit zip code, search radius, and selecting a business type to target.
 
 ![Search Form](/public/images/readme_images/search_form.png)
 
@@ -19,13 +16,13 @@ A user can search for referral sources within a chosen radius of the user's medi
 
 ![Search Form Error](/public/images/readme_images/search_error.png)
 
-
 #### A successfull search results in several actions taking place:
 
 - The MapQuest Search API is queried returning any `searchResults` that match the user input parameters.
 
-- The Search Form data is compared against the `searchResults` for matching address and zip code. 
-  - If matching data is found, it is filtered out of the `searchResults` and placed into the database within the `prospects table`. The marketing firm now has the user's data for future campaigns. 
+- The Search Form data is compared against the `searchResults` for matching address and zip code.
+
+  - If matching data is found, it is filtered out of the `searchResults` and placed into the database within the `prospects table`. The marketing firm now has the user's data for future campaigns.
 
   - The user data saved consists of practice name, address, city, state, zip code, phone number, and date the record was created.
 
@@ -34,7 +31,6 @@ A user can search for referral sources within a chosen radius of the user's medi
 - The `searchResults` are then filtered against the database `targets table` which stores all referral sources that have been claimed by a registered customer of the marketing firm. Any records stored in the `targets table` that match the address and zip code of a `searchResult` are removed from `searchResults` resulting in a dataset containing only `eligibleResults` that can be claimed by the current user.
 
 - If the number of `eligibleResults` is less than `n`, the user is prompted to increase their search radius.
-
 
 ### Registration
 
@@ -46,24 +42,19 @@ A user can search for referral sources within a chosen radius of the user's medi
 
 ![Registration Error](public/images/readme_images/registration_error.png)
 
-
-
 #### Successful registration with all related data stored successfully:
 
-  - A welcome email is sent to the new customer with an attachment in .csv containing all of their referral sources [`targets`]
-  - An email notifies the admin that a user has registered for the service.
-  - The user is presented with a sign-in form.
-
+- A welcome email is sent to the new customer with an attachment in .csv containing all of their referral sources [`targets`]
+- An email notifies the admin that a user has registered for the service.
+- The user is presented with a sign-in form.
 
 #### Successful registration with only the user's data stored in the `clients table`:
 
-  - A welcome email is sent to the new customer.
-  - An email notifies the admin that a user has registered for the service but there was an error storing their associated referral sources [`targets`] in the `targets table`.
-  - User is presented with a sign-in form.
-
+- A welcome email is sent to the new customer.
+- An email notifies the admin that a user has registered for the service but there was an error storing their associated referral sources [`targets`] in the `targets table`.
+- User is presented with a sign-in form.
 
 Visit https://venit.herokuapp.com/search to try out Venit
-
 
 Task List:
 
@@ -73,6 +64,6 @@ Task List:
 - [ ] Optimize queries
 - [ ] Further unit testing
 - [ ] Payment method via Square, Stripe
-- [ ] User sign in 
+- [ ] User sign in
 - [ ] User Dashboard with ability to view, add, remove and export targets.
 - [ ] Admin panel for managing prospects, clients, and associtated referral data.
