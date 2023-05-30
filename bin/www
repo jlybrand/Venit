@@ -5,7 +5,7 @@
  */
 const config = require("../lib/config");
 
-var app = require("../app");
+var app = require("../api/index");
 var debug = require("debug")("generator-skeleton:server");
 var http = require("http");
 
