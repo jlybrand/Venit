@@ -3,3 +3,4 @@ node_modules
 tests
 session-store.db
 csv_files
+.vercel
